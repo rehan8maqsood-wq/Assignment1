@@ -6,7 +6,6 @@ import express from "express";
 import { zlogin, valid } from "./zodeL";
 import SC from "./loginS";
 import schema from "./signupschema";
-import { validate } from "zod";
 const app = express();
 dotenv.config();
 app.use(express.json());
