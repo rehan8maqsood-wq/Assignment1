@@ -48,7 +48,7 @@ app.post("/s", Validation(zSignup), async (req, res) => {
   if(Email.includes("@")== false){
     res.status(404).json({message:"invalid email"});
   }
-  const user = await SC.findone({username});
+  const user = await schema.findone({username});
     if(!user){
         res.status(409).json({message:"username is existing"});
     }
@@ -56,7 +56,7 @@ app.post("/s", Validation(zSignup), async (req, res) => {
         res.status(400).json({message:"Password is not matching"})
     }
     const hashing = await bcrypt.hash(Password,10);
-    const student = await SC.create({
+    const student = await schema.create({
         FirstName: FirstName,
         SecondName: SecondName,
         LastName : LastName,
